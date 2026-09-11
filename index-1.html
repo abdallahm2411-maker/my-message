@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>رسالة ليكي ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+ font-family:Arial,"Tahoma",sans-serif;
+ background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+ color:#5a1830; padding:20px; overflow-x:hidden;
+}
+.card{
+ width:min(760px,100%); background:rgba(255,255,255,.94); border-radius:28px;
+ padding:32px 24px; box-shadow:0 18px 50px rgba(100,20,50,.22);
+ text-align:center; position:relative;
+}
+h1{font-size:clamp(28px,7vw,48px);margin:0 0 22px}
+#lock p{font-size:20px;margin:10px 0 18px}
+input{
+ width:min(360px,100%); padding:15px; border:2px solid #e9a0b0;
+ border-radius:14px; font-size:20px; text-align:center; outline:none;
+}
+button{
+ margin-top:12px; padding:14px 28px; border:0; border-radius:14px;
+ background:#d94f70; color:white; font-size:20px; font-weight:bold; cursor:pointer;
+}
+#error{color:#c62828;margin-top:12px;min-height:24px}
+#message{display:none}
+.text{font-size:clamp(19px,4.5vw,27px);line-height:2.05;white-space:pre-line}
+.heart{position:fixed;font-size:25px;animation:fall linear infinite;opacity:.8;pointer-events:none}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0deg);opacity:0}10%{opacity:.8}100%{transform:translateY(110vh) rotate(360deg);opacity:0}}
+.small{margin-top:22px;font-size:14px;opacity:.65}
+</style>
+</head>
+<body>
+<div class="card">
+  <div id="lock">
+    <h1>رسالة ليكي ❤️</h1>
+    <p>اكتبي كلمة السر عشان تشوفي الرسالة 🥹</p>
+    <input id="password" type="password" inputmode="numeric" placeholder="كلمة السر">
+    <br>
+    <button onclick="unlock()">افتحي الرسالة ❤️</button>
+    <div id="error"></div>
+  </div>
+  <div id="message">
+    <h1>حبيبتي ❤️</h1>
+    <div class="text">شكرًا على كل حاجة حلوة بينا، شكرًا على البوسات والأحضان، وعلى كل الضحك والكلام والقصص الخيالية اللي بنعيشها سوا، واللحظات اللي بتخليني أنسى الدنيا كلها وأنا معاكي. 🥹❤️
+
+شكرًا إنك دايمًا بتخلّي أي وقت معاكي له طعم تاني، وشكرًا على كل ذكرى حلوة بنعملها سوا.
+
+نفسي أفضل معاكي ونكمّل كل الحكايات اللي بدأناها، وربنا يجمعنا في الحلال ويجعلك زوجتي وشريكة حياتي، ونعيش سوا كل القصص اللي بنحلم بيها. 💍❤️
+
+بحب وجودك في حياتي، وشكرًا إنك إنتِ. ❤️</div>
+    <div class="small">من قلبي ليكي ❤️</div>
+  </div>
+</div>
+<script>
+const PASS="2062010";
+function unlock(){
+  const v=document.getElementById("password").value;
+  if(v===PASS){
+    document.getElementById("lock").style.display="none";
+    document.getElementById("message").style.display="block";
+    for(let i=0;i<28;i++){
+      const h=document.createElement("div"); h.className="heart"; h.textContent=["❤️","💗","💕","💖"][Math.floor(Math.random()*4)];
+      h.style.left=Math.random()*100+"vw";
+      h.style.animationDuration=(4+Math.random()*5)+"s";
+      h.style.animationDelay=(Math.random()*2)+"s";
+      document.body.appendChild(h);
+    }
+  }else{
+    document.getElementById("error").textContent="كلمة السر غلط 😅❤️";
+  }
+}
+document.getElementById("password").addEventListener("keydown",e=>{if(e.key==="Enter")unlock()});
+</script>
+</body>
+</html>
