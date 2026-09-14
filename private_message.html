@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رسالة خاصة 🔐</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    font-family:Tahoma,Arial,sans-serif; background:radial-gradient(circle at top,#26324d,#0b0e16 65%);
+    color:#fff; padding:20px;
+  }
+  .card{
+    width:min(460px,100%); padding:30px; border-radius:24px;
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 20px 60px rgba(0,0,0,.45); backdrop-filter:blur(12px);
+    text-align:center;
+  }
+  h1{margin:0 0 10px;font-size:30px}
+  p.sub{color:#cbd3e6;margin:0 0 24px}
+  input{
+    width:100%; padding:15px; border-radius:14px; border:1px solid #ffffff2b;
+    background:#ffffff12; color:#fff; outline:none; text-align:center; font-size:18px;
+  }
+  button{
+    width:100%; margin-top:12px; padding:15px; border:0; border-radius:14px;
+    background:#fff; color:#10131b; font-size:17px; font-weight:bold; cursor:pointer;
+  }
+  #error{color:#ff9b9b;min-height:24px;margin-top:12px}
+  #message{display:none;text-align:right;line-height:2;font-size:17px;margin-top:24px}
+  .badge{display:inline-block;padding:6px 12px;border-radius:999px;background:#ffffff12;color:#dfe6f5;margin-bottom:16px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="badge">🔐 رسالة خاصة</div>
+  <h1>أهلًا بيك يا صاحبي 😎</h1>
+  <p class="sub">اكتب كلمة السر عشان تفتح الرسالة.</p>
+
+  <div id="login">
+    <input id="password" type="password" inputmode="numeric" placeholder="كلمة السر">
+    <button onclick="openMessage()">فتح الرسالة ✨</button>
+    <div id="error"></div>
+  </div>
+
+  <div id="message">
+    <h2 style="text-align:center">🎉 أخيرًا وصلت! 😂🔐</h2>
+    <p>لو قدرت تدخل كلمة السر، يبقى أنت كده من الناس المسموح لها تشوف الكلام ده 😎😂</p>
+    <p>بص يا صاحبي، مهما الدنيا اتغيرت ومهما كل واحد انشغل في حياته، تفضل من الناس اللي ليها مكانة خاصة عندي ❤️🤝</p>
+    <p>مش كل يوم بنلاقي صاحب نقدر نهزر معاه، نتخانق معاه، ونرجع نضحك بعدها كأن مفيش حاجة حصلت 😂</p>
+    <p><b>أخويا وصاحبي، ربنا يديم صحبتنا ويبعد عننا أي زعل أو بُعد ❤️🔥</b></p>
+    <p>وبالمناسبة… دخولك للموقع ده لا يعني إنك بقيت VIP 😂<br><b>أنت لسه عليك الحساب في الخروجة الجاية. 💀😂</b></p>
+  </div>
+</div>
+
+<script>
+function openMessage(){
+  const pass=document.getElementById('password').value;
+  const error=document.getElementById('error');
+  if(pass === '10102009'){
+    document.getElementById('login').style.display='none';
+    document.getElementById('message').style.display='block';
+  }else{
+    error.textContent='❌ كلمة السر غلط يا نجم 😂';
+  }
+}
+document.getElementById('password').addEventListener('keydown',e=>{
+  if(e.key==='Enter') openMessage();
+});
+</script>
+</body>
+</html>
